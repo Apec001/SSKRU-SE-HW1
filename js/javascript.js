@@ -9,6 +9,7 @@ var DEBUG = true;
 // ตัวอย่างการประกาศตัวแปรในภาษา javascript
 var currentOutput = "";
 
+
 if(DEBUG)
 {
     console.log("DEBUG ON");
@@ -136,6 +137,7 @@ function plusClicked()
     dbg("+ is clicked");
     currentOutput += "+";
     document.getElementById("display").value = currentOutput;
+
 }
 
 function minusClicked()
@@ -168,6 +170,7 @@ function divideClicked()
 }
 
 function equalClicked()
+ function equalClicked()
 {
     dbg("= is clicked");
     
@@ -185,7 +188,12 @@ function equalClicked()
     dbg(String(result));
 
     // ตัวอย่างการแสดงค่าออกทาง console เพื่อดูค่าของตัวแปร currentOutput
-    dbg("ค่าของ currentOutput คือ ", currentOutput);
+    if(currentOutput == "")
+    {
+        currentOutput = "0";
+    }
+   currentOutput = eval(currentOutput);
+   document.getElementById("display").value = currentOutput;
 }
 
 function delClicked()
@@ -206,12 +214,15 @@ function delClicked()
     */
    currentOutput = currentOutput.substring(0, currentOutput.length-1);
    document.getElementById("display").value = currentOutput;
+
 }
 
 function clearClicked()
 {
     dbg("C is clicked");
 
+   currentOutput = ""
+   document.getElementById("display").value = ""
     /* คำแนะนำ
         ให้ล้างค่า currentOutput และอัพเดท HTML text input id="display" โดยการใช้ document.getElementById()
         ตัวอย่าง:
@@ -239,4 +250,4 @@ function pcClicked()
 
     currentOutput += ")";
     document.getElementById("display").value = currentOutput;
-}
+}}
